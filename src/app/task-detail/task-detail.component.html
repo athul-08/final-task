@@ -1,0 +1,39 @@
+<header>
+    <nav>
+      <ul>
+        <li><a routerLink="/dashboard">Dashboard</a></li>
+        <li><a routerLink="/task-detail">Task Detail</a></li>
+        <li><a routerLink="/create-task">Create Task</a></li>
+        <li><a routerLink="/user-profile">User Profile</a></li>
+        <li><a routerLink="/login">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+<div *ngIf="task">
+    <h2>Task Details</h2>
+    <div>
+      <label>Title:</label>
+      <span>{{ task.title }}</span>
+    </div>
+    <div>
+      <label>Description:</label>
+      <span>{{ task.description }}</span>
+    </div>
+    <div>
+      <label>Due Date:</label>
+      <span>{{ task.dueDate }}</span>
+    </div>
+    <div>
+      <label>Priority:</label>
+      <span>{{ task.priority }}</span>
+    </div>
+    <div>
+      <label>Status:</label>
+      <span>{{ task.status }}</span>
+    </div>
+    <button (click)="updateTask()">Update Task</button>
+    <button (click)="deleteTask()">Delete Task</button>
+    <button (click)="changeTaskStatus('completed')">Mark as Completed</button>
+  </div>
+  

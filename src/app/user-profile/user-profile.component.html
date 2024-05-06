@@ -1,0 +1,34 @@
+<header>
+    <nav>
+      <ul>
+        <li><a routerLink="/dashboard">Dashboard</a></li>
+        <li><a routerLink="/task-detail">Task Detail</a></li>
+        <li><a routerLink="/create-task">Create Task</a></li>
+        <li><a routerLink="/user-profile">User Profile</a></li>
+        <li><a routerLink="/login">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+<h2>User Profile</h2>
+<div>
+  <label>Username:</label>
+  <span>{{ user.username }}</span>
+</div>
+<div>
+  <label>Email:</label>
+  <input type="email" [(ngModel)]="updatedEmail">
+</div>
+<div>
+  <label>Profile Picture:</label>
+  <img [src]="user.profilePictureUrl" alt="Profile Picture">
+</div>
+<button (click)="updateProfile()">Update Profile</button>
+<div *ngIf="profileChangeSuccess">Profile changed successfully</div>
+
+<div>
+  <label>New Password:</label>
+  <input type="password" [(ngModel)]="newPassword">
+</div>
+<button (click)="changePassword()">Change Password</button>
+<div *ngIf="passwordChangeSuccess">Password changed successfully</div>

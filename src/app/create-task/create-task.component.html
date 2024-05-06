@@ -1,0 +1,37 @@
+<header>
+  <nav>
+    <ul>
+      <li><a routerLink="/dashboard">Dashboard</a></li>
+      <li><a routerLink="/task-detail">Task Detail</a></li>
+      <li><a routerLink="/create-task">Create Task</a></li>
+      <li><a routerLink="/user-profile">User Profile</a></li>
+      <li><a routerLink="/login">Logout</a></li>
+    </ul>
+  </nav>
+</header>
+<form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <label>Title:</label>
+  <input type="text" formControlName="title" placeholder="enter the title">
+
+  <label>Description:</label>
+  <textarea formControlName="description" placeholder="enter the description"></textarea>
+
+  <label>Due Date:</label>
+  <input type="date" formControlName="dueDate">
+
+  <label>Priority:</label>
+  <select formControlName="priority">
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select>
+
+  <label>Status:</label>
+  <select formControlName="status">
+    <option value="todo">To Do</option>
+    <option value="inprogress">In Progress</option>
+    <option value="completed">Completed</option>
+  </select>
+
+  <button type="submit" [disabled]="createForm.invalid">Submit</button>
+</form>

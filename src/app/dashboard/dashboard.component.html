@@ -1,0 +1,39 @@
+<header>
+  <nav>
+    <ul>
+      <li><a routerLink="/task-detail">Task Detail</a></li>
+      <li><a routerLink="/create-task">Create Task</a></li>
+      <li><a routerLink="/user-profile">User Profile</a></li>
+      <li><a routerLink="/login">Logout</a></li>
+    </ul>
+  </nav>
+</header>
+
+<h1>Dashboard</h1>
+
+<div class="chart-container">
+  <canvas #pieChart></canvas>
+</div>
+
+<div class="task-list">
+  <h2>Task List</h2>
+  <ul>
+    <li *ngFor="let task of tasks">
+      {{ task.title }} - Due: {{ task.dueDate | date }}
+      <button (click)="markAsCompleted(task)">Mark as Completed</button>
+      <button (click)="deleteTask(task)">Delete</button>
+    </li>
+  </ul>
+</div>
+
+<div class="filter-options">
+  <label>Status:</label>
+  <select [(ngModel)]="selectedStatus">
+    <option value="all">All</option>
+    <option value="pending">Pending</option>
+    <option value="completed">Completed</option>
+    <option value="overdue">Overdue</option>
+  </select>
+</div>
+
+<button routerLink="/create-task">Add New Task</button>
